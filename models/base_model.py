@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """The base class for models"""
+
+
 import uuid
 from datetime import datetime
-import models
+import time
+
 
 class BaseModel():
     """Base model from which future instances are derived"""
