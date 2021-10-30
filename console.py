@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
         print("]")
 
     def do_update(self, arg):
-        """Update an instance based on the class name, id, attribute & value"""
+        """Updates an instance based on the class name, id, attribute & value"""
         args = shlex.split(arg)
         integers = ["number_rooms", "number_bathrooms", "max_guest",
                     "price_by_night"]
