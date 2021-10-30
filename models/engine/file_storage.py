@@ -45,6 +45,3 @@ class FileStorage:
                     self.__objects[key] = value
         except Exception:
             pass
-        
-        
-        

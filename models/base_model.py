@@ -14,14 +14,14 @@ class BaseModel():
         """Initializing of the base model"""
 
         if kwargs:
-            for key, value in kwargs.items()
+            for key, value in kwargs.items():
 
                 if key == "created at" or key == "updated_at":
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 self.__dict__[key] = value
 
             else:
-            self.id = str(uuid.uuid4())
+                self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
 
@@ -40,7 +40,7 @@ class BaseModel():
         """Method to return the dictionary representation of our object."""
         
         x_dict = self.__dict__copy()
-        x_dict = ['__class__'] = self.__class__.__name__
-        x_dict = ['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        x_dict = ['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        x_dict ["__class__"] = self.__class__.__name__
+        x_dict ["created_at"] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        x_dict ["updated_at"] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         return x_dict
