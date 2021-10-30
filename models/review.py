@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""User Class"""
+"""Review Class"""
+
 
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
-    """Class that defines a User and inherits from BaseModel."""
+class Review(BaseModel):
+    """Class Review that inherits from BaseModel"""
 
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    place_id = ""
+    user_id = ""
+    text = ""
