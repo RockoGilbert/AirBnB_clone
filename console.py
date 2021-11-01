@@ -70,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
         instance.save()
 
     def do_show(self, arg):
-        """Prints an instance as a string based on the class and id"""
+        """Prints an instance as a string based on the class/id"""
         args = shlex.split(arg)
         if len(args) == 0:
             print("** class name missing **")
@@ -88,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_destroy(self, arg):
-        """Deletes an instance based on the class and id"""
+        """Deletes an instance based on the class/id"""
         args = shlex.split(arg)
         if len(args) == 0:
             print("** class name missing **")
@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_all(self, arg):
-        """Prints string representations of instances"""
+        """Prints string representation of instances"""
         args = shlex.split(arg)
         obj_list = []
         if len(args) == 0:
@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
         print("]")
 
     def do_update(self, arg):
-        """Updates an instance based on the class name, id, attribute & value"""
+        """Changes instance based on value"""
         args = shlex.split(arg)
         integers = ["number_rooms", "number_bathrooms", "max_guest",
                     "price_by_night"]
