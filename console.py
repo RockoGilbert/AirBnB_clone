@@ -26,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
         exit()
 
     def emptyline(self):
-        """ Handles if the line is empty """
+        """ Handles if the line is emptyer """
         pass
 
     def do_quit(self, arg):
@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
         print("]")
 
     def do_update(self, arg):
-        """Changes instance based on value"""
+        """Changes an instance based on value"""
         args = shlex.split(arg)
         integers = ["number_rooms", "number_bathrooms", "max_guest",
                     "price_by_night"]
