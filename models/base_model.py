@@ -11,7 +11,7 @@ class BaseModel():
     """Base model from which future instances are derived"""
 
     def __init__(self, *args, **kwargs):
-        """Initializing of the base model"""
+        """Initializing the base model"""
 
         if kwargs:
             for key, value in kwargs.items():
@@ -32,13 +32,13 @@ class BaseModel():
             self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
-        """Updates the attribute 'updated_at' with the current datetime"""
+        """Updates the attribute updated_at with the current datetime"""
 
         self.updated_at = datetime.utcnow()
         model.storage.save()
 
     def to_dict(self):
-        """Method to return the dictionary representation of our object."""
+        """Method to return the dictionary representation of the object."""
 
         x_dict = self.__dict__copy()
         x_dict["__class__"] = self.__class__.__name__
