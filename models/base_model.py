@@ -27,20 +27,21 @@ class BaseModel():
 
     def __str__(self):
         """String representation of the BaseModel Class"""
-        
-        return "[{:s}] ({:s}) {}".format(self.__class__.__name__, self.id, self.__dict__)
-    
+
+        return "[{:s}] ({:s}) {}".format(
+            self.__class__.__name__, self.id, self.__dict__)
+
     def save(self):
         """Updates the attribute 'updated_at' with the current datetime"""
-        
+
         self.updated_at = datetime.utcnow()
         model.storage.save()
-    
+
     def to_dict(self):
         """Method to return the dictionary representation of our object."""
-        
+
         x_dict = self.__dict__copy()
-        x_dict ["__class__"] = self.__class__.__name__
-        x_dict ["created_at"] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        x_dict ["updated_at"] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        x_dict["__class__"] = self.__class__.__name__
+        x_dict["created_at"] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        x_dict["updated_at"] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         return x_dict
