@@ -56,36 +56,59 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """Creates a new instance of a class"""
-        args = arg.split()
-        if len(args) == 0:
+        if arg == "" or None:
             print("** class name missing **")
-            return False
-        if args[0] in classes:
-            new_dict = self._key_value_parser(args[1:])
-            instance = classes[args[0]](**new_dict)
-        else:
+        elif arg not in ["Amenity", "BaseModel", "City", "Place",
+                         "Review", "State", "User"]:
             print("** class doesn't exist **")
-            return False
-        print(instance.id)
-        instance.save()
+        else:
+            if arg == "Amenity":
+                new_class = Amenity()
+            elif arg == "BaseModel":
+                new_class = BaseModel()
+            elif arg == "City":
+                new_class = City()
+            elif arg == "Place":
+                new_class = Place()
+            elif arg == "Review":
+                new_class = Review()
+            elif arg == "State":
+                new_class = State()
+            elif arg == "User":
+                new_class = User()
+            print(new_class.id)
+            storage.new(new_class)
+            storage.save()
 
     def do_show(self, arg):
         """Prints an instance as a string based on the class/id"""
-        args = shlex.split(arg)
-        if len(args) == 0:
+        class_name = None
+        class_id = None
+
+        if arg != "":
+            try:
+                class_name = arg.split(" ")[0]
+                class_id = arg.split(" ")[1]
+            except IndexError:
+                pass
+        if class_name is None:
             print("** class name missing **")
-            return False
-        if args[0] in classes:
-            if len(args) > 1:
-                key = args[0] + "." + args[1]
-                if key in models.storage.all():
-                    print(models.storage.all()[key])
-                else:
-                    print("** no instance found **")
-            else:
-                print("** instance id missing **")
-        else:
+        elif class_name not in ["Amenity", "BaseModel", "City",
+                                "Place", "Review", "State", "User"]:
             print("** class doesn't exist **")
+        elif class_id is None:
+            print("** instance id missing **")
+        else:
+            obj_name = class_name + "." + class_id
+            id_check = False
+            all_objs = storage.all()
+            for key in all_objs.keys():
+                if key == obj_name:
+                    obj = all_objs[key]
+                    print(obj)
+                    id_check = True
+            if id_check is not True:
+                print("** no instance found **")
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class/id"""
