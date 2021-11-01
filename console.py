@@ -26,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
         exit()
 
     def emptyline(self):
-        """ Handles if the line is emptyer """
+        """ Handles if the line is empty """
         pass
 
     def do_quit(self, arg):
