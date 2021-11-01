@@ -150,12 +150,7 @@ class HBNBCommand(cmd.Cmd):
             print(obj_list)
 
     def do_update(self, arg):
-        """
-        Updates an instance based on the class name and id by
-        adding or updating an attribute
-        and saves the change into a JSON file
-        Usage: $ update BaseModel 1234-1234-1234 email "asdf@mail.com
-        """
+        """ Updates an instance based on the class name and id """
         class_name = None
         class_id = None
         class_attr_name = None
