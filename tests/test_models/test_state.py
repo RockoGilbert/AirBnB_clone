@@ -11,8 +11,7 @@ class TestState(unittest.TestCase):
     '''start tests'''
 
     def test_docstring(self):
-        '''test if funcions, methods, classes
-        and modules have docstring'''
+        '''test if there is a docstring'''
         msj = "Módulo does not has docstring"
         self.assertIsNotNone(models.state.__doc__, msj)  # Modules
         msj = "Clase does not has docstring"

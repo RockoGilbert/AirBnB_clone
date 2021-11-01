@@ -19,7 +19,7 @@ class TestPlace(unittest.TestCase):
         self.assertIsNotNone(Place.__doc__, msj)  # Classes
 
     def test_executable_file(self):
-        '''test if file has permissions u+x to execute'''
+        '''tests if file has permissions u+x to execute'''
         # Check for read access
         is_read_true = os.access('models/place.py', os.R_OK)
         self.assertTrue(is_read_true)
@@ -31,6 +31,6 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(is_exec_true)
 
     def test_is_an_instance(self):
-        '''check if my_model is an instance of BaseModel'''
+        '''checks if my_model is an instance of BaseModel'''
         my_place = Place()
         self.assertIsInstance(my_place, Place)

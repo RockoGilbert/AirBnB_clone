@@ -11,7 +11,7 @@ class TestCity(unittest.TestCase):
     '''start tests'''
 
     def test_docstring(self):
-        '''test if funcions, methods, classes
+        '''tests if functions, methods, classes
         and modules have docstring'''
         msj = "Módulo does not has docstring"
         self.assertIsNotNone(models.city.__doc__, msj)  # Modules
@@ -19,7 +19,7 @@ class TestCity(unittest.TestCase):
         self.assertIsNotNone(City.__doc__, msj)  # Classes
 
     def test_executable_file(self):
-        '''test if file has permissions u+x to execute'''
+        '''tests if file has permissions u+x to execute'''
         # Check for read access
         is_read_true = os.access('models/city.py', os.R_OK)
         self.assertTrue(is_read_true)
@@ -31,6 +31,6 @@ class TestCity(unittest.TestCase):
         self.assertTrue(is_exec_true)
 
     def test_is_an_instance(self):
-        '''check if my_model is an instance of BaseModel'''
+        '''checks if my_model is an instance of BaseModel'''
         my_city = City()
         self.assertIsInstance(my_city, City)
