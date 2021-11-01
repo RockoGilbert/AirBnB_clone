@@ -37,7 +37,7 @@ class FileStorage:
     def new(self, obj):
         """sets __objects the obj with key <obj class name>.id"""
         if obj is not None:
-            key = obj.__class__.__name__ + "." + obj
+            key = obj.__class__.__name__ + "." + str(obj.id)
             self.__objects[key] = obj
 
     def save(self):
@@ -46,7 +46,7 @@ class FileStorage:
         for key in self.__objects:
             if key == "password":
                 json_objects[key].decode()
-            json_objects[key] = self.__objects[key].to_dict(save_fs=1)
+            json_objects[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w') as f:
             json.dump(json_objects, f)
 

@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""This module tests the BaseModel class"""
+"""Tests the BaseModel class"""
 
 import models
 from models.base_model import BaseModel
 import datetime
 import json
-import unitest
+
 
 
 my_model = BaseModel()
