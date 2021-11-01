@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """The base class for models"""
 
-
+import models
 import uuid
 from datetime import datetime
 import time
@@ -35,7 +35,7 @@ class BaseModel():
         """Updates the attribute updated_at with the current datetime"""
 
         self.updated_at = datetime.utcnow()
-        model.storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """Method to return the dictionary representation of the object."""
