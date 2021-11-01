@@ -39,7 +39,7 @@ class BaseModel():
     def to_dict(self):
         """Method to return the dictionary representation of the object."""
 
-        x_dict = self.__dict__copy()
+        x_dict = self.__dict__.copy()
         x_dict["__class__"] = self.__class__.__name__
         x_dict["created_at"] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
         x_dict["updated_at"] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
