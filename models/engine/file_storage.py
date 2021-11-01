@@ -26,12 +26,7 @@ class FileStorage:
 
     def all(self, cls=None):
         """returns the dictionary __objects"""
-        if cls is not None:
-            new_dict = {}
-            for key, value in self.__objects.items():
-                if cls == value.__class__ or cls == value.__class__.__name__:
-                    new_dict[key] = value
-            return new_dict
+
         return self.__objects
 
     def new(self, obj):
@@ -42,22 +37,23 @@ class FileStorage:
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
-        json_objects = {}
-        for key in self.__objects:
-            if key == "password":
-                json_objects[key].decode()
-            json_objects[key] = self.__objects[key].to_dict()
-        with open(self.__file_path, 'w') as f:
-            json.dump(json_objects, f)
+        newDict = {}
+        for key, value in self.__objects.items():
+            newDict[key] = value.to_dict()
+
+        with open(self.__file_path, "w") as fd:
+            json.dump(newDict, fd)
+
 
     def reload(self):
         """deserializes the JSON file to __objects"""
         try:
-            with open(self.__file_path, 'r') as f:
-                jo = json.load(f)
-            for key in jo:
-                self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
-        except:
+            with open(self.__file_path, 'r') as jsonTOobjs:
+                all_json = json.load(jsonTOobjs)
+                for key in all_json:
+                    self.__objects[key] = getattr(
+                        models, all_json[key]['__class__'])(**all_json[key])
+        except Exception:
             pass
 
     def delete(self, obj=None):
