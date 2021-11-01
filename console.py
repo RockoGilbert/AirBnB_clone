@@ -19,19 +19,19 @@ classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
 
 class HBNBCommand(cmd.Cmd):
     """ HBNH console """
-    prompt = '(hbnb) '
+    prompt = "(hbnb) "
 
     def do_EOF(self, arg):
         """Exits console"""
-        return True
+        exit()
 
     def emptyline(self):
-        """ overwriting the emptyline method """
-        return False
+        """ Handles if the line is empty """
+        pass
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
-        return True
+        exit()
 
     def _key_value_parser(self, args):
         """creates a dictionary from a list of strings"""
