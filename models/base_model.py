@@ -38,7 +38,6 @@ class BaseModel():
         models.storage.new(self)
         models.storage.save()
 
-
     def to_dict(self):
         """Method to return the dictionary representation of the object."""
 
