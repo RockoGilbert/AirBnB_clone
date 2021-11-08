@@ -33,7 +33,6 @@ class HBNBCommand(cmd.Cmd):
         """
         Creates a new instance of BaseModel,
         saves it to a JSON file, and prints the id
-        Usage: $ create BaseModel
         """
         if arg == "" or None:
             print("** class name missing **")
@@ -63,7 +62,6 @@ class HBNBCommand(cmd.Cmd):
         """
         Prints the string representation of an instance
         based on the class name and id
-        Usage: $ show BaseModel 1234-1234-1234
         """
         class_name = None
         class_id = None
@@ -96,7 +94,6 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arg):
         """
         Deletes an instance based on the class name and id
-        Usage: $ destroy BaseModel 1234-1234-1234
         """
         class_name = None
         class_id = None
@@ -130,8 +127,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Prints all string representations of all instances if
         no class name is passed, or prints a string representation
-        of a specific class based on class name
-        Usage: $ all or $ all BaseModel
+        of a class
         """
         obj_list = []
         if arg == "":
