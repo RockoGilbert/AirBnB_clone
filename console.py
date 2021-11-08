@@ -181,7 +181,7 @@ class HBNBCommand(cmd.Cmd):
                     setattr(obj, class_attr_name, class_attr_val)
                     id_check = True
             if id_check is not True:
-                print("** no instance found **")
+                print("** no instances found **")
 
 
 if __name__ == '__main__':
