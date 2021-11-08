@@ -125,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """
-        Prints all string representations of all instances if
+        Prints all string representations of instances if
         no class name is passed, or prints a string representation
         of a class
         """
