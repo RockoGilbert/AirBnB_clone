@@ -1,26 +1,37 @@
-.places{
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row wrap;
-}
-
 .places h1{
     font-size: 30px;
-    width: 100%;
-    padding-left: 15px;
-    padding-top: 20px;
+    flex-basis: 100%;
 }
 
+
 .places article{
-    width: 390px;
-    padding: 20px;
-    margin: 20px;
-    border: #FF5A5F 1px solid;
+    border: 1px solid #FF5A5F;
     border-radius: 4px;
-    display: inline-block;
+    margin: 20px;
+    padding: 0px;
+    width: 395px;
 }
 
 .places article h2{
-    font-size: 30px;
     text-align: center;
+    font-size: 30px;
+}
+.places {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.flex{
+    display:flex;
+    align-content:center;
+    margin-left:-120%;
+}
+.rock{
+    margin-right: 135%;
+}
+.left{
+    margin-top:30%;
+    margin-right:410%;
 }
